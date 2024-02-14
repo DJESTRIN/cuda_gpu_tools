@@ -19,8 +19,14 @@ def main(time_oh):
     log, _ = sp.Popen(['nvidia-smi', '-q', '-x'], stdout=sp.PIPE).communicate()
     log = log.decode('UTF-8')
     log = xmltodict.parse(log)['nvidia_smi_log']
-    gpu_usage = proc(log['gpu']['utilization']['gpu_util'])
-    writer.add_scalar("Loss/train", gpu_usage, time_oh)
+    if len(log['gpu'])>1:
+        for j in range(len(log['gpu'])):
+            gpu_name = "GPU"+str(j)
+            gpu_usage = proc(log['gpu'][j]['utilization']['gpu_util'])
+            writer.add_scalar(gpu_name, gpu_usage, time_oh)
+    else:
+        gpu_usage = proc(log['gpu']['utilization']['gpu_util'])
+        writer.add_scalar("GPU 0", gpu_usage, time_oh)
     return 
 
 def proc(x):
