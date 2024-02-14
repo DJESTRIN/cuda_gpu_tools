@@ -10,7 +10,7 @@ from torch.utils.tensorboard import SummaryWriter
 
 timestr = time.strftime("%Y%m%d%H%M%S")
 output_folder = '/home/fs01/dje4001/cuda_gpu_tools/run'+timestr+'/'
-os.mkdirs(output_folder)
+os.mkdir(output_folder)
 writer = SummaryWriter([output_folder])
 
 
