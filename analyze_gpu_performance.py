@@ -32,7 +32,7 @@ def proc(x):
     return float(x.split(' ')[0])
 
 if __name__ == "__main__":
-    stop_time = 5 # seconds
+    stop_time = 60*60*3 # seconds
     start_time=time.time()
     pullcuda=True
     while pullcuda:
