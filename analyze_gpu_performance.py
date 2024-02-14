@@ -8,11 +8,10 @@ import subprocess as sp
 from collections import namedtuple
 from torch.utils.tensorboard import SummaryWriter
 
-timestr = time.strftime("%Y%m%d%H%M%S")
-output_folder = '/home/fs01/dje4001/cuda_gpu_tools/run'+timestr+'/'
-os.mkdir(output_folder)
-writer = SummaryWriter([output_folder])
-
+#timestr = time.strftime("%Y%m%d%H%M%S")
+#output_folder = '/home/fs01/dje4001/cuda_gpu_tools/run'+timestr+'/'
+#os.mkdir(output_folder)
+writer = SummaryWriter()
 
 def main(time_oh):
     # Get Nvidia SMI log message
