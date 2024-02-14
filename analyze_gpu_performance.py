@@ -36,7 +36,6 @@ if __name__ == "__main__":
     start_time=time.time()
     pullcuda=True
     while pullcuda:
-        time.sleep(0.01)
         current_time = time.time()
         main(current_time)
         if (current_time-start_time) > stop_time:
